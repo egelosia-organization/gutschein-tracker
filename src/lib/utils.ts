@@ -26,7 +26,7 @@ export const EMPLOYEE_NAMES = [
   "Anna",
   "Lucy",
   "Hannah Lenaif",
-  "Hannah Pit Stop Boss",
+  "Hannah Link",
   "Mai Kim",
   "Kim B",
   "Melina",
@@ -42,7 +42,7 @@ export const EMPLOYEE_NAMES = [
   "Paul Pavian 💪",
   "Diana",
   "Selma",
-  "Leni Rühl",
+  "Leni Emsbach",
   "Leni Engers",
   "Marie",
   "Emilia",
@@ -77,6 +77,7 @@ export const EMPLOYEE_NAMES = [
   "Emma Eick", 
   "Viktoria", 
   "Rosa", 
+  "Selma F"
   // Add more names as needed
 ];
 

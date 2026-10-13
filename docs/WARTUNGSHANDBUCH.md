@@ -21,7 +21,7 @@ Mitarbeiternamen sind in der Datei **`src/lib/utils.ts`** gespeichert.
      "Sabine",
      "Anja M",
      // ... andere Namen ...
-     "Zied",  // ← neu
+     "Zied", // ← neu
    ];
    ```
 4. Datei speichern
@@ -36,11 +36,13 @@ Mitarbeiternamen sind in der Datei **`src/lib/utils.ts`** gespeichert.
 ### Mitarbeiter umbenennen
 
 **Wenn der Mitarbeiter bereits Gutscheine hat:**
+
 - ⚠️ Nicht direkt umbenennen
 - Existierende Gutscheine behalten den alten Namen im Verlauf
 - Das ist wichtig für die Nachverfolgung
 
 **Für neue Mitarbeiter ohne Gutscheine:**
+
 - Kann problemlos in `EMPLOYEE_NAMES` umbenannt werden
 
 ### Mitarbeiter löschen
@@ -91,12 +93,14 @@ Die Datenbank ist auf **Neon** (serverless PostgreSQL) gehostet.
 ### Manuelle Sicherung erstellen
 
 **Via Neon Console:**
+
 1. Gehe auf https://console.neon.tech
 2. Wähle dein Projekt
 3. Gehe zu **Backups**
 4. Klick **"Create Snapshot"**
 
 **Via PostgreSQL CLI:**
+
 ```bash
 pg_dump "postgresql://benutzer:passwort@host/datenbank" > sicherung.sql
 ```
@@ -105,6 +109,7 @@ pg_dump "postgresql://benutzer:passwort@host/datenbank" > sicherung.sql
 
 **Via Neon:** Kontaktiere Neon Support
 **Via CLI:**
+
 ```bash
 psql "postgresql://benutzer:passwort@host/datenbank" < sicherung.sql
 ```
@@ -124,11 +129,13 @@ psql "postgresql://benutzer:passwort@host/datenbank" < sicherung.sql
 **Symptome:** Fehler "Cannot connect to database"
 
 **Mögliche Ursachen:**
+
 1. DATABASE_URL falsch oder abgelaufen
 2. Neon inaktiv (Cold Start)
 3. Netzwerk blockiert Vercel → Neon
 
 **Lösungen:**
+
 ```bash
 # Verbindung lokal testen
 npm run dev
@@ -145,11 +152,13 @@ vercel redeploy
 **Symptome:** Gutschein wird nicht erstellt
 
 **Mögliche Ursachen:**
+
 1. Netzwerkfehler bei Absendung
 2. ID existiert bereits (nicht angezeigt)
 3. Request Timeout
 
 **Lösungen:**
+
 1. Browser-Konsole prüfen (F12) auf Fehler
 2. Seite neu laden, Gutschein suchen
 3. Vercel Logs ansehen: `vercel logs`
@@ -178,6 +187,7 @@ vercel redeploy
 **Ursache:** Race Condition (2 Einlösungen gleichzeitig)
 
 **Lösungen:**
+
 1. Verlauf des Gutscheins prüfen
 2. Vercel Logs auf Transaction-Fehler prüfen
 3. Dev kontaktieren für DB-Patch
@@ -189,6 +199,7 @@ vercel redeploy
 **Ursache:** Neue ID existiert bereits
 
 **Lösungen:**
+
 1. Neue Gutscheinnummer prüfen
 2. Wenn Duplikat, per DB löschen
 3. Tausch erneut versuchen
@@ -200,12 +211,14 @@ vercel redeploy
 ### Daten via Neon ansehen
 
 **Via Neon Dashboard (Web):**
+
 1. console.neon.tech
 2. Projekt wählen
 3. **SQL Editor** klicken
 4. SQL-Queries schreiben
 
 **Via psql (Command Line):**
+
 ```bash
 psql "postgresql://benutzer:passwort@host/datenbank"
 
@@ -255,12 +268,14 @@ psql "postgresql://..." --json -c "SELECT * FROM \"Coupon\"" > gutscheine.json
 ### Performance prüfen
 
 **Vercel Analytics:**
+
 1. vercel.com
 2. Projekt wählen
 3. **Analytics** Tab
 4. Response Times und Fehler sehen
 
 **Vercel Logs:**
+
 ```bash
 vercel logs --tail
 ```
@@ -322,6 +337,7 @@ npx prisma migrate deploy
 ### Kompletter Prozess
 
 1. **Lokal entwickeln**
+
    ```bash
    git checkout -b feature/something
    # ... Code-Änderungen ...
@@ -330,6 +346,7 @@ npx prisma migrate deploy
    ```
 
 2. **Commit und Push**
+
    ```bash
    git add .
    git commit -m "Beschreibung der Änderungen"
@@ -351,22 +368,26 @@ npx prisma migrate deploy
 ## 📋 Wartungs-Checkliste
 
 **Wöchentlich:**
+
 - [ ] Vercel Fehler prüfen (Analytics)
 - [ ] Anomale Gutscheine prüfen
 - [ ] Zugriffs-Logs überprüfen
 
 **Monatlich:**
+
 - [ ] Neon Snapshot erstellen
 - [ ] Performance überprüfen
 - [ ] Passwörter ggf. ändern
 - [ ] Daten für Finanzbericht exportieren
 
 **Quartal:**
+
 - [ ] Abhängigkeiten aktualisieren
 - [ ] Security Audit
 - [ ] Queries optimieren wenn nötig
 
 **Jährlich:**
+
 - [ ] Alte Gutscheine archivieren
 - [ ] Datenbank-Kapazität prüfen
 - [ ] Vercel/Neon Kosten evaluieren
@@ -379,10 +400,4 @@ Bei Problemen:
 
 1. **Logs prüfen** (Vercel, Browser-Konsole)
 2. **Dieses Handbuch** konsultieren
-3. **Ursprünglichen Entwickler** kontaktieren bei Bedarf
-
----
-
-**Version** : 1.0  
-**Letzte Aktualisierung** : Oktober 2026  
-**Kontakt** : ziedbennani@gmail.com
+3. **Ursprünglichen Entwickler** kontaktieren bei Bedarf : ziedbennani@gmail.com

@@ -385,4 +385,4 @@ Bei Problemen:
 
 **Version** : 1.0  
 **Letzte Aktualisierung** : Oktober 2026  
-**Verantwortlich** : [Dein IT-Team]
+**Kontakt** : ziedbennani@gmail.com

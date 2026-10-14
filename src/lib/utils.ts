@@ -57,7 +57,6 @@ export const EMPLOYEE_NAMES = [
   "Jessi", 
   "Paula", 
   "Mootez", 
-  "Linus", 
   "Paul Pinguin 🦵", 
   "Leonie",
   "Olite", 
